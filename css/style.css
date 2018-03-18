@@ -5,10 +5,12 @@ html {
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
   font-size: 1em;
+  background: #f7f7f9;
 }
 
 header {
     padding: 50px;
+    background: #f7f7f9;
 }
 
 header h1 {
