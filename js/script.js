@@ -3,7 +3,8 @@ $(document).ready(function() {
     let searchInput = $("#searchInput");
     let searchBtn = $("#searchBtn");
 
-    searchBtn.on("click", function() {
+    searchBtn.on("click", function(event) {
+        event.preventDefault();
         searchBeer();
     });
 
@@ -14,13 +15,13 @@ $(document).ready(function() {
         //let beerId = $("#searchInput").val();
         //let beerName = searchInput.value();
         let beerName = $("#searchInput").val();
-        let myData = "name=" + beerName;
-        /*
+        //let myData = "name=" + beerName;
+
         $.ajax({
             url: 'php/action.php', //Where to make Ajax calls aka route
             type: 'post', // POST or GET
-            data: {action: 'test'}, //Form variables /* myData */ /* {name : beerName, type : 'beer'}*/
-            /*dataType:'text',
+            data: {'name' : beerName, 'type' : 'beer'}, //Form variables /* myData */ /* {name : beerName, type : 'beer'}*/
+            dataType:'json',
             beforeSend: function () {
                 console.log('loading')
             },
@@ -32,20 +33,7 @@ $(document).ready(function() {
 
                 console.log("error");
             }
-        });*/
-
-        $.ajax({
-          url: '/php/action.php',
-          type: 'POST',
-          data: {'action': 'follow', 'userid': '11239528343'},
-          dataType: "text",
-          success: function(data, status) {
-              console.log("lol");
-          },
-          error: function(xhr, desc, err) {
-            console.log("Details: " + desc + "\nError:" + err);
-          }
-        }); // end ajax call
+        });
 
     }
 
