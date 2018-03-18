@@ -31,3 +31,7 @@ body {
     letter-spacing: 5px;
     text-transform: uppercase;
 }
+
+.footer div {
+    text-align: center;
+}
