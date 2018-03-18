@@ -1,3 +1,10 @@
+
+<?php
+    require("php/requireAll.php");
+    $config = require("config.php");
+
+?>
+
 <!doctype html>
 <html lang="sv">
     <head>
