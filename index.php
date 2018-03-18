@@ -60,35 +60,20 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <?php
-                        if(!isset($page)) {
-                            $page = 0;
-                        }
 
-                    ?>
-
-                    <?php if(!isset($_POST['searchBtn'])): ?>
-                        <h1 class="display-3">Hello, beer lover!</h1>
-                        <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
-                        <hr class="my-4">
-                        <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
-                    <?php endif; ?>
-                    <form class="form-inline my-2 my-lg-0 mx-auto" method="POST" action="index.php?name=test&page={$page}">
-                        <input name="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button name="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <h1 class="display-3">Hello, beer lover!</h1>
+                    <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
+                    <hr class="my-4">
+                    <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
+                    <form class="form-inline my-2 my-lg-0 mx-auto">
+                        <input  id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <br>
-                    <?php if(!isset($_POST['searchBtn'])): ?>
-                        <p class="lead">
-                            <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
-                        </p>
-                    <?php endif; ?>
-
-                    <?php if(isset($_GET['page']) && isset($_GET['name']) && isset($_POST['searchBtn'])): ?>
-                        <?= "Test" ?>
-                        <?= $page ?>
-                        <?php $page++; ?>
-                    <?php endif; ?>
+                    <p class="lead">
+                        <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
+                    </p>
+                    <div id="test"> </div>
                 </div>
               </div>
             </div>
