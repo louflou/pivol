@@ -2,16 +2,40 @@
 <html lang="sv">
     <head>
         <meta charset="utf-8">
+        
         <!-- Bootstrap CDN-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-GxhP7S92hzaDyDJqbdpcHqV5cFflxAx0Yze/X7vUONp43KK1E8eUWaJIMkit3D0R" crossorigin="anonymous">
+<<<<<<< HEAD
+
+        <link rel="stylesheet" src="css/bootstrap-lux-min.css">
 
         <!-- Pivol CSS -->
+        <link rel="stylesheet" src="css/style.css">
+        
+        <!-- Bootstrap Lux theme CSS -->
+        <link rel="stylesheet" src="css/bootstrap-lux-min.css">
+        
+          
+        <title>Pivøl - Home</title>
+
+        <link rel="stylesheet" href="css/bootstrap-lux-min.css">
+=======
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-GxhP7S92hzaDyDJqbdpcHqV5cFflxAx0Yze/X7vUONp43KK1E8eUWaJIMkit3D0R" crossorigin="anonymous">
+>>>>>>> origin/master
+
+        <!-- Pivol CSS -->
+
         <link rel="stylesheet" href="css/style.css">
 
         <title>Pivol - home</title>
+
     </head>
     <body>
+
+        
+        <div class="page-header heady">
+            <h1>Pivøl</h1>
+        </div>
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,19 +61,48 @@
                     </li>
                 </ul>
 
+                <form class="form-inline my-2 my-lg-0">
+                    <input id="searchfield" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="get-beer" class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
             </div>
         </nav>
 
-        <main>
-        hej     <p>Test</p>
-        </main>
+
+        <div class="jumbotron">
+            <h1 class="display-3">Hello, beer lover!</h1>
+            <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
+            <hr class="my-4">
+            <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <br>
+            
+            <p class="lead">
+            <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
+            </p>
+        </div>       
+        
 
         <!-- Footer -->
+<<<<<<< HEAD
+
+        <footer class="footer footer-dark">
+            <div class="container">
+              <span class="text-muted">Pivol ® 2018</span>
+            </div>
+        </footer>
+
+=======
         <footer class="footer bg-dark">
             <div class="container">
               <span class="text-muted">Multiapplication 2018 &copy;</span>
             </div>
         </footer>
+>>>>>>> origin/master
 
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
