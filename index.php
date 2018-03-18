@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Advanced Search</a>
@@ -60,17 +60,18 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1 class="display-3">Hello, beer lover!</h1>
-                    <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
-                    <hr class="my-4">
-                    <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
-                    <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <?php if(!isset($_POST['searchBtn'])): ?>
+                        <h1 class="display-3">Hello, beer lover!</h1>
+                        <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
+                        <hr class="my-4">
+                        <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
+                    <?php endif; ?>
+                    <form class="form-inline my-2 my-lg-0 mx-auto" method="POST">
                         <input name="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button name="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <br>
 
-            
                     <p class="lead">
                         <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
                     </p>
