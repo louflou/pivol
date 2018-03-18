@@ -1,37 +1,25 @@
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
-    font-size: 1em;
+  margin-bottom: 60px; /* Margin bottom by footer height */
+  font-size: 1em;
 }
-.footer {
-    position: absolute;
-    bottom: 0;
-    background-color:#333;
-    width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
-}
-.heady {
-    padding:50px;
-    text-align: center;
-}
-.heady h1 {
-    letter-spacing: 15px;  
-    text-transform: uppercase;
 
-}
-.foot {
-    margin: auto;
-    width:300px;
-    text-align: center;
-    color:#ddd;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
 }
 
 .footer div {
     text-align: center;
 }
+
+
+/* Home
+**********************************/
