@@ -1,27 +1,39 @@
 $(document).ready(function() {
 
-$("#get-beer").on("click", function() {
-
-    var beerId = $("#search-field").val();
-    var key = "cc12540abedfa669021307d4ba111d87";
-
-	$.ajax({
-		url: "http://api.brewerydb.com/v2/beer/" + beerId "/?key=" + key,
-		dataType: "JSON"
-	}).done(function (data){
-		$("#tips").text(data.value.joke);
-	}).fail(function (data){
-		console.log(data);
-		$("#tips").text("Det gick inte att hämta ett tips.");
-	});
-
-});
+    let searchInput = $("#searchInput");
+    let searchBtn = $("searchBtn");
 
 
+    $("#searchBtn").on("click", function() {
 
-function searchBeer () {
+        //let beerId = $("#searchInput").val();
+        //let beerName = searchInput.value();
+        const key = "cc12540abedfa669021307d4ba111d87";
+        let beerName = $("#searchInput").val();
+        let path = "http://api.brewerydb.com/v2/";
+        let myData = 'search?q=' + beerName + '&type=beer&key=' + key; //data to be sent
+        console.log(path+myData);
+    	$.ajax({
+            type: 'GET', // POST or GET
+            url: path, //Where to make Ajax calls aka route
+            dataType: 'json', // Data type, HTML, json etc.
+            data: myData, //Form variables
+            timeout: 500,
+    	}).done(function (data){
+    		$("#tips").text(data.value.joke);
+            console.log(data);
+    	}).fail(function (data){
+    		console.log(data);
+    		$("#tips").text("Det gick inte att hämta ett tips.");
+    	});
+
+    });
 
 
-}
+
+    function searchBeer () {
+
+
+    }
 
 });
