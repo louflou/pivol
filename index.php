@@ -65,11 +65,12 @@
                     <hr class="my-4">
                     <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
                     <form class="form-inline my-2 my-lg-0 mx-auto">
-                        <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input name="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button name="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <br>
 
+            
                     <p class="lead">
                         <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
                     </p>
