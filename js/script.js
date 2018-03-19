@@ -28,8 +28,6 @@ $(document).ready(function() {
         outputPage();
     });
 
-
-
     $(document).on("click","a.itemLink", function(){
         var usersid =  $(this).attr("data-beer-id");
         console.log(usersid);
@@ -154,6 +152,61 @@ $(document).ready(function() {
                 console.log("error");
             }
         });
+    }
+
+    function clean() {
+        $(".results").empty();
+        $(".searchForm").remove();
+        $(".lead").remove();
+    }
+
+    clean();
+    displayItem("GUeFb3");
+
+    function displayItem(id) {
+
+
+        let myData = {
+
+        };
+
+        let parsed = JSON.stringify(myData);
+
+        ajaxCall(parsed, 'beer/' + id, function (output) {
+
+            let img = "";
+            let abv = ""; //Alcohol by Volume
+            let name = output[0]['data']['name'];
+            let id =  output[0]['data']['id'];
+
+
+            if(output[0]['data']['labels'] == null) {
+                img = "img/beer-tile.png";
+            } else {
+                img = output[0]['data']['labels']['medium'];
+            }
+
+            if(isNaN(output[0]['data']['abv'])) {
+                abv = "N/A";
+            } else {
+                abv = output[0]['data']['abv'] + "%";
+            }
+
+
+            let row = $('<div class="row align-items-center item"> </div>');
+            let row2 = $('<div class="row item"> </div>');
+            let column = $('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>');
+            row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"><img src="' + img + '" alt="beer icon" class="img-thumbnail" /></div>');
+            row.append('<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8"><p>IBU</p> <p>SRM: ' +  '</p> '+ ' <p>Alcohol Volume: ' + abv + '</p></div>');
+            column.append(row2);
+            row.append(column);
+            //row2.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"> test</div>');
+
+            //row.append(row2);
+            $('.results').append(row);
+        });
+
+
     }
 
 });

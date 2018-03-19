@@ -9,15 +9,10 @@
 <html lang="sv">
     <head>
         <meta charset="utf-8">
-
-
-        <!-- Bootstrap Lux theme CSS -->
-        <link rel="stylesheet" src="css/bootstrap-lux-min.css">
-
         <title>Pivøl - Home</title>
         <!-- Bootstrap CDN-->
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-GxhP7S92hzaDyDJqbdpcHqV5cFflxAx0Yze/X7vUONp43KK1E8eUWaJIMkit3D0R" crossorigin="anonymous">
-
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-GxhP7S92hzaDyDJqbdpcHqV5cFflxAx0Yze/X7vUONp43KK1E8eUWaJIMkit3D0R" crossorigin="anonymous">
 
         <!-- Pivol CSS -->
         <link rel="stylesheet" href="css/style.css">
@@ -65,7 +60,7 @@
                     <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
                     <hr class="my-4">
                     <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
-                    <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <form class="form-inline my-2 my-lg-0 mx-auto searchForm">
                         <input  id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
