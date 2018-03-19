@@ -54,3 +54,7 @@ nav .navbar {
 .home .card {
     /*display: none; */
 }
+
+.home .card .results .row {
+    margin-bottom: 25px;
+}

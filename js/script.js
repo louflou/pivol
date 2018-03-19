@@ -31,11 +31,12 @@ $(document).ready(function() {
     }
 
     function appendResult (imgSrc, name, volume) {
-        let row = $('<div class="row"> </div>');
+        let row = $('<div class="row align-items-center"> </div>');
         row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture"><img src="' + imgSrc + '" alt="beer icon" class="img-thumbnail" /></div>');
         row.append('<div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name"><p>' + name + '</p></div>');
         row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume"><p>' + volume + '</p></div>');
         $('.results').append(row);
+        console.log(name);
     }
 
     function retrieveById (beerId) {
@@ -51,8 +52,29 @@ $(document).ready(function() {
             }
         });*/
         ajaxCall(parsed, 'beer/' + beerId, function (output) {
-            console.log(output[0]['data']['labels']['medium']);
-            appendResult(output[0]['data']['labels']['medium'], output[0]['data']['name'], output[0]['data']['abv']);
+            //console.log(output[0]['data']['labels']['medium']);
+            let img = "";
+            let abv = ""; //Alcohol by Volume
+            let name = output[0]['data']['name'];
+
+
+            if(output[0]['data']['labels'] == null) {
+                //appendResult(output[0]['data']['labels']['medium'], output[0]['data']['name'], output[0]['data']['abv']);
+                img = "img/beer-tile.png";
+
+            } else {
+                img = output[0]['data']['labels']['medium'];
+            }
+
+            if(isNaN(output[0]['data']['abv'])) {
+                abv = "N/A";
+            } else {
+                abv = output[0]['data']['abv'] + "%";
+            }
+
+            appendResult(img, name, abv);
+            //appendResult(output[0]['data']['labels']['medium'], output[0]['data']['name'], output[0]['data']['abv']);
+
         });
     }
 

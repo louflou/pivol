@@ -79,9 +79,14 @@
                         <div class="row">
                             <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture">Image</div>
                             <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name">Name</div>
-                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume">Alcohol Volume</div>
+                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume">Alcohol Volume </div>
                         </div>
                       </div>
+                    </div>
+
+                    <div>
+                        <button id="prevBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Previous</button>
+                        <button id="nextBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
                     </div>
 
                 </div>
