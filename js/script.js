@@ -8,7 +8,7 @@ $(document).ready(function() {
     let currentPage = 1;
     let numOfPages = 1;
     let errors = [];
-    let n = 0;
+    let n = 0; // Finished
     let max;
 
     searchBtn.on("click", function(event) {
@@ -22,7 +22,7 @@ $(document).ready(function() {
         if(currentPage < numOfPages) {
             currentPage++;
         }
-        outputPage();
+        //outputPage();
         searchBeer();
     });
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
         if(currentPage > 1) {
             currentPage--;
         }
-        outputPage();
+        //outputPage();
         searchBeer();
     });
 
@@ -98,7 +98,7 @@ $(document).ready(function() {
         let parsed = JSON.stringify(myData);
 
         ajaxCall(parsed, 'beer/' + beerId, function (output) {
-
+            console.log(output);
             if(output == 'loading') {
 
             } else if(output == 'error') {
@@ -129,7 +129,7 @@ $(document).ready(function() {
             if(n != max) {
                 displayLoading();
             } else {
-                displaySucess ();
+                displaySucess();
             }
 
         });
@@ -158,6 +158,7 @@ $(document).ready(function() {
                 $(".item").remove();
 
                 numOfPages = output[0]['numberOfPages'];
+                n = 0;
 
                 if(isNaN(numOfPages)) {
                     numOfPages = 1;
