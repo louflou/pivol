@@ -196,7 +196,7 @@ $(document).ready(function() {
             error: function (xhr, ajaxOptions, thrownError) {
                 //console.log("error");
                 handleData("error")
-                errrors.push(thrownError);
+                errors.push(thrownError);
             }
         });
     }
