@@ -61,7 +61,7 @@ $(document).ready(function() {
 
 
         let myData = {
-            q: "t", //Bear name
+            q: $("#searchInput").val(), //Beer name
             type: "beer"
         };
 
