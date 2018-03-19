@@ -1,10 +1,3 @@
-
-<?php
-    //require("php/requireAll.php");
-    //$config = require("config.php");
-
-?>
-
 <!doctype html>
 <html lang="sv">
     <head>
@@ -34,10 +27,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="advanced.php">Advanced Search</a>
                     </li>
                     <li class="nav-item">
@@ -56,35 +49,17 @@
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
-                    <h1 class="display-3">Hello, beer lover!</h1>
-                    <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
-                    <hr class="my-4">
-                    <p class="textP">Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
                     <form class="form-inline my-2 my-lg-0 mx-auto searchForm">
                         <input  id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <br>
-                    <p class="lead">
-                        <a class="btn btn-dark btn-lg disabled" href="#" role="button">Learn more</a>
-                    </p>
-
-                    <div class="card hide">
-                      <div class="card-body results">
-                        <div class="row">
-                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture">Label</div>
-                            <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name">Name</div>
-                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume">Alcohol Volume </div>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <input type="checkbox" aria-label="Checkbox for following text input">
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-
-                    <div class="buttons hide">
-                        <button id="prevBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Previous</button>
-                        <button id="nextBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
-                        <p class="page"> </p>
-                    </div>
-
+                    </form>
                 </div>
               </div>
             </div>

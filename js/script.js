@@ -62,6 +62,7 @@ $(document).ready(function() {
         $(".alert").delay(1500).fadeOut();
         $('.results').removeClass('hide');
         $('.buttons').removeClass('hide');
+        $('.card').removeClass('hide');
     }
 
     function displayLoading() {
@@ -223,13 +224,15 @@ $(document).ready(function() {
                 let text = output[0]['data']['description'];
                 let ibu = output[0]['data']['ibu'];
                 let srm = output[0]['data']['srm'];
-                let abv = output[0]['data']['abv'] + "%";
+                let abv = output[0]['data']['abv'];
                 let organic = output[0]['data']['isOrganic'];
                 let lastUpdated = output[0]['data']['updateDate'];
                 let status = output[0]['data']['status'];
 
                 if(isNaN(abv)) {
                     abv = "N/A";
+                } else {
+                    abv += "%";
                 }
 
                 if(isNaN(ibu)) {
