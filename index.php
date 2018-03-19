@@ -86,22 +86,37 @@
                     </div>
 
                     <!--Test-->
-                    <div class="card">
+                    <!-- <div class="card">
                       <div class="card-body">
                           <div class="row align-items-center">
                               <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                                   <img src="https://s3.amazonaws.com/brewerydbapi/beer/GUeFb3/upload_eu86pe-medium.png" alt="beer icon" class="img-thumbnail">
                               </div>
-                              <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8"><p>IBU</p> <p>SRM: </p>  <p>Alcohol Volume: 5.5%</p></div>
+                              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                  <p>IBU</p>
+                                  <p>SRM:</p>
+                                  <p>Alcohol Volume: </p>
+                              </div>
+                              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                                  <p>Is Organic: </p>
+                                  <p>Last Updated: </p>
+                                  <p>Status: </p>
+                              </div>
                           </div>
                           <div class="row align-items-left item">
-                              <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center"><h5>Brown Ale</h5></div>
+                              <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">
+                                  <h5>Brown Ale</h5>
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center ingrediens">
+                                     <p>Ingrediens: </p>
+                                  </div>
+                              </div>
                               <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                                   <p>An all-malt American Brown Ale with just enough hop presence to keep it from being too sweet. The aroma comes predominantly from the malt with a hint of the spiciness of imported British hops. Seven distinct specialty malts are milled at the brewery and mashed together, providing a complex, nutty flavor with subtle, roasted undertones. This Pearl Street original is a favorite amongst locals and professional beer judges alike. Gold Medal Winner at the World   Beer Championships, 2003. Available on draught year ‘round. foodPairings: "Few styles are more versatile when it comes to food. The malt flavor stands up well to everything from spicy stir-fried Thai or Chinese dishes to BBQ ribs and Indian curry. At the same time, the fruity flavors and balanced maltiness go well with roasted chicken, smoked trout or salmon and hearty options like beef stew. Game dishes, particularly venison, are an outstanding pairing.
-                                  </p></div>
+                                  </p>
+                              </div>
                           </div>
                       </div>
-                    </div>
+                    </div> -->
 
                 </div>
               </div>
