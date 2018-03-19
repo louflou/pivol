@@ -30,8 +30,12 @@ $(document).ready(function() {
 
     }
 
-    function createResult () {
-
+    function appendResult (imgSrc, name, volume) {
+        let row = $('<div class="row"> </div>');
+        row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture"><img src="' + imgSrc + '" alt="beer icon" class="img-thumbnail" /></div>');
+        row.append('<div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name"><p>' + name + '</p></div>');
+        row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume"><p>' + volume + '</p></div>');
+        $('.results').append(row);
     }
 
     function retrieveById (beerId) {
@@ -47,7 +51,8 @@ $(document).ready(function() {
             }
         });*/
         ajaxCall(parsed, 'beer/' + beerId, function (output) {
-            console.log(output[0]['data']);
+            console.log(output[0]['data']['labels']['medium']);
+            appendResult(output[0]['data']['labels']['medium'], output[0]['data']['name'], output[0]['data']['abv']);
         });
     }
 
