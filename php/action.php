@@ -26,7 +26,6 @@ $params = array();
 $toArray = get_object_vars ( $data );
 $params = $toArray;
 
-//$params = ["beerId" => "oeGSxs"];
 
 try {
     // The first argument to request() is the endpoint you want to call
@@ -39,4 +38,11 @@ try {
 
 } catch (Exception $e) {
     $results = array('error' => $e->getMessage());
+}
+
+
+function clean($string) {
+   $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+
+   return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 }

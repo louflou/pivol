@@ -40,7 +40,15 @@ $(document).ready(function() {
         };
 
         let parsed = JSON.stringify(myData);
-        //ajaxCall(parsed, 'beer/' + beerId)
+        /*
+        ajaxCall(parsed, 'beers/', function(output) {
+            for(i = 0; i < output[0]['data'].length; i++) {
+                console.log(output[0]['data'][i]);
+            }
+        });*/
+        ajaxCall(parsed, 'beer/' + beerId, function (output) {
+            console.log(output[0]['data']['name']);
+        });
     }
 
 
@@ -48,7 +56,7 @@ $(document).ready(function() {
 
 
         let myData = {
-            q: "te", //Bear name
+            q: "t", //Bear name
             type: "beer"
         };
 
@@ -56,7 +64,11 @@ $(document).ready(function() {
 
         //let path = 'name='+beerName+'&type=beer';
         ajaxCall(parsed, 'search', function (output) {
-            console.log(output);
+            for(i = 0; i < output[0]['data'].length; i++) {
+                //console.log(output[0]['data'][i]);
+                retrieveById(output[0]['data'][i]['id']);
+            }
+
         });
 
     }
