@@ -22,7 +22,7 @@
         <!-- Pivol CSS -->
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
+    <body class="home">
 
 
         <header class="page-header heady text-center">
@@ -73,7 +73,16 @@
                     <p class="lead">
                         <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
                     </p>
-                    <div id="test"> </div>
+
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="row">
+                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">col-sm-4</div>
+                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">col-sm-4</div>
+                        </div>
+                      </div>
+                    </div>
+
                 </div>
               </div>
             </div>
