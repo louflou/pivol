@@ -38,6 +38,10 @@ nav .navbar {
     opacity: 0.4;
 }
 
+.hide {
+    display: none !important;
+}
+
 
 /* Home
 **********************************/
@@ -85,12 +89,21 @@ nav .navbar {
     margin-top: 25px;
 }
 
-.hide {
-    display: none !important;
+
+/* Advanced
+**********************************/
+
+.advanced .form-inline {
+    display: inline-block;
+    margin: auto;
 }
 
+.advanced .checkboxes {
+    margin: 15px auto;
+}
 
-
+/* Mobile
+*********************************/
 @media (min-width: 768px) and (max-width: 991.98px) {
 
 

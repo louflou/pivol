@@ -51,13 +51,16 @@ $(document).ready(function() {
     }
 
     function displayError () {
-
+        $('.alert').removeClass('alert-info');
+        $('.alert').removeClass('alert-success');
+        $('.alert').addClass('alert-danger');
+        $('.statusText').text("An error has occured");
     }
 
     function displaySucess () {
         $('.progress').empty().remove();
         $('.alert').removeClass('alert-info');
-        $('.alert').addClass('alert-success')
+        $('.alert').addClass('alert-success');
         $('.statusText').text("Finished");
         $(".alert").delay(1500).fadeOut();
         $('.results').removeClass('hide');
@@ -193,6 +196,7 @@ $(document).ready(function() {
             error: function (xhr, ajaxOptions, thrownError) {
                 //console.log("error");
                 handleData("error")
+                errrors.push(thrownError);
             }
         });
     }

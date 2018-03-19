@@ -10,7 +10,7 @@
         <!-- Pivol CSS -->
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body class="home">
+    <body class="advanced">
 
 
         <header class="page-header heady text-center">
@@ -50,20 +50,45 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
                     <form class="form-inline my-2 my-lg-0 mx-auto searchForm">
-                        <input  id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              <input type="checkbox" aria-label="Checkbox for following text input">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                <input  id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </div>
-                          </div>
+                        </div>
+                        <div class="row checkboxes">
+                            <div class="col-7 col-sm-7 col-md-7 col-lg-7">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="" checked="">
+                                    Is Organic
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="" checked="">
+                                    With Breweries
+                                  </label>
+                                </div>
+                            </div>
+                            <div class="col-5 col-sm-5 col-md-5 col-lg-5">
+                                <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" value="" checked="">
+                                    Has Label
+                                  </label>
+                                </div>
+                            </div>
                         </div>
                     </form>
+
+
+
                 </div>
               </div>
             </div>
         </div>
+
 
 
         <!-- Footer -->
