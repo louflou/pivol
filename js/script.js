@@ -29,9 +29,10 @@ $(document).ready(function() {
     });
 
     $(document).on("click","a.itemLink", function(){
-        var usersid =  $(this).attr("data-beer-id");
-        console.log(usersid);
-        console.log("lol");
+        let beerId =  $(this).attr("data-beer-id");
+        clean();
+        displayItem(beerId);
+
     });
 
     function outputPage () {
@@ -40,12 +41,8 @@ $(document).ready(function() {
     }
 
     function searchBeer () {
-        //let beerId = $("#searchInput").val();
-        //let beerName = searchInput.value();
         let beerName = $("#searchInput").val();
         retrieveByName(beerName);
-        //retrieveById('oeGSxs');
-        //let myData = "name=" + beerName;
     }
 
     function displayError () {
@@ -71,12 +68,7 @@ $(document).ready(function() {
         };
 
         let parsed = JSON.stringify(myData);
-        /*
-        ajaxCall(parsed, 'beers/', function(output) {
-            for(i = 0; i < output[0]['data'].length; i++) {
-                console.log(output[0]['data'][i]);
-            }
-        });*/
+
         ajaxCall(parsed, 'beer/' + beerId, function (output) {
             //console.log(output[0]['data']['labels']['medium']);
             let img = "";
@@ -160,9 +152,6 @@ $(document).ready(function() {
         $(".lead").remove();
     }
 
-    clean();
-    displayItem("GUeFb3");
-
     function displayItem(id) {
 
 
@@ -175,11 +164,27 @@ $(document).ready(function() {
         ajaxCall(parsed, 'beer/' + id, function (output) {
 
             let img = "";
-            let abv = ""; //Alcohol by Volume
             let name = output[0]['data']['name'];
             let id =  output[0]['data']['id'];
             let text = output[0]['data']['description'];
+            let ibu = output[0]['data']['ibu'];
+            let srm = output[0]['data']['srm'];
+            let abv = output[0]['data']['abv'] + "%";
+            let organic = output[0]['data']['isOrganic'];
+            let lastUpdated = output[0]['data']['updateDate'];
+            let status = output[0]['data']['status'];
 
+            if(isNaN(abv)) {
+                abv = "N/A";
+            }
+
+            if(isNaN(ibu)) {
+                ibu = "N/A";
+            }
+
+            if(isNaN(srm)) {
+                srm = "N/A";
+            }
 
             if(output[0]['data']['labels'] == null) {
                 img = "img/beer-tile.png";
@@ -187,16 +192,25 @@ $(document).ready(function() {
                 img = output[0]['data']['labels']['medium'];
             }
 
-            if(isNaN(output[0]['data']['abv'])) {
-                abv = "N/A";
+            if(organic == null) {
+                organic = "Not defined";
             } else {
-                abv = output[0]['data']['abv'] + "%";
+                if(organic == "N") {
+                    organic = "No";
+                } else {
+                    organic = "Yes";
+                }
             }
 
-            let ibu = "";
-            //let row = $('<div class="row align-items-center item"> </div>');
-            //let row2 = $('<div class="row item"> <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">Test</div> </div>');
-            //let column = $('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>');
+            if(lastUpdated == null) {
+                lastUpdated = "Not defined";
+            }
+
+            if(status == null) {
+                status = "Not defined";
+            }
+
+
             let row = $('<div class="row align-items-center item"> </div>');
             let row2 = $('<div class="row align-items-left item"> </div>');
 
@@ -209,11 +223,11 @@ $(document).ready(function() {
             let column6 = $('<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center ingrediens"></div>');
 
             let p = $('<p>IBU: ' + ibu +  '</p>');
-            let p2 = $('<p>SRM: ' + ibu +  '</p>');
-            let p3 = $('<p>Alcohol Volume: ' + ibu +  '</p>');
+            let p2 = $('<p>SRM: ' + srm +  '</p>');
+            let p3 = $('<p>Alcohol Volume: ' + abv +  '</p>');
 
-            let p4 = $('<p>Is Organic: ' + ibu +  '</p>');
-            let p5 = $('<p>Last Updated: ' + ibu +  '</p>');
+            let p4 = $('<p>Is Organic: ' + organic +  '</p>');
+            let p5 = $('<p>Last Updated: ' + lastUpdated +  '</p>');
             let p6 = $('<p>Status: ' + ibu +  '</p>');
 
             let p7 = $('<p>' + text + '</p>');
@@ -244,32 +258,3 @@ $(document).ready(function() {
     }
 
 });
-
-/*
-<div class="row align-items-center">
-    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-        <img src="https://s3.amazonaws.com/brewerydbapi/beer/GUeFb3/upload_eu86pe-medium.png" alt="beer icon" class="img-thumbnail">
-    </div>
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-        <p>IBU</p>
-        <p>SRM:</p>
-        <p>Alcohol Volume: </p>
-    </div>
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-        <p>Is Organic: </p>
-        <p>Last Updated: </p>
-        <p>Status: </p>
-    </div>
-</div>
-<div class="row align-items-left item">
-    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center">
-        <h5>Brown Ale</h5>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center ingrediens">
-           <p>Ingrediens: </p>
-        </div>
-    </div>
-    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-        <p>An all-malt American Brown Ale with just enough hop presence to keep it from being too sweet. The aroma comes predominantly from the malt with a hint of the spiciness of imported British hops. Seven distinct specialty malts are milled at the brewery and mashed together, providing a complex, nutty flavor with subtle, roasted undertones. This Pearl Street original is a favorite amongst locals and professional beer judges alike. Gold Medal Winner at the World   Beer Championships, 2003. Available on draught year ‘round. foodPairings: "Few styles are more versatile when it comes to food. The malt flavor stands up well to everything from spicy stir-fried Thai or Chinese dishes to BBQ ribs and Indian curry. At the same time, the fruity flavors and balanced maltiness go well with roasted chicken, smoked trout or salmon and hearty options like beef stew. Game dishes, particularly venison, are an outstanding pairing.
-        </p>
-    </div>
-</div>*/
