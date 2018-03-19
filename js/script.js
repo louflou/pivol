@@ -47,7 +47,7 @@ $(document).ready(function() {
             }
         });*/
         ajaxCall(parsed, 'beer/' + beerId, function (output) {
-            console.log(output[0]['data']['name']);
+            console.log(output[0]['data']);
         });
     }
 
