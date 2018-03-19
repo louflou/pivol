@@ -77,7 +77,7 @@
                     <div class="card">
                       <div class="card-body results">
                         <div class="row">
-                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture">Image</div>
+                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture">Label</div>
                             <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name">Name</div>
                             <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume">Alcohol Volume </div>
                         </div>
