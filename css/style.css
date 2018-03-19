@@ -70,3 +70,21 @@ nav .navbar {
 .home .jumbotron .ingrediens {
     margin-top: 30px;
 }
+
+.home .progress {
+    margin: 50px auto;
+    width: 50%;
+}
+
+.home .progress .progress-bar {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.home .alert {
+    margin-top: 25px;
+}
+
+.hide {
+    display: none !important;
+}

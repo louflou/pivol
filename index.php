@@ -59,7 +59,7 @@
                     <h1 class="display-3">Hello, beer lover!</h1>
                     <p class="lead">Pivøl is an app that allows users to search for beer, brands, breweries, and such -  to get information about ingredients, volume, alcohol content and similar kinds of beer. </p>
                     <hr class="my-4">
-                    <p>Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
+                    <p class="textP">Search for beer in the field below - and Pivøl will fetch some results for you from the database. </p>
                     <form class="form-inline my-2 my-lg-0 mx-auto searchForm">
                         <input  id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -104,6 +104,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- AJAX-->
-        <script src="js/script.js"></script> 
+        <script src="js/script.js"></script>
     </body>
 </html>
