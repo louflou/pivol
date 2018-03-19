@@ -4,6 +4,7 @@ $(document).ready(function() {
     let searchBtn = $("#searchBtn");
     let nextBtn = $("#nextBtn");
     let prevBtn = $("#prevBtn");
+    let itemLink = $(".itemLink");
     let currentPage = 1;
     let numOfPages = 1;
 
@@ -27,7 +28,15 @@ $(document).ready(function() {
         outputPage();
     });
 
-    function outputPage() {
+
+
+    $(document).on("click","a.itemLink", function(){
+        var usersid =  $(this).attr("data-beer-id");
+        console.log(usersid);
+        console.log("lol");
+    });
+
+    function outputPage () {
         $(".page").empty();
         $(".page").append("Page " + currentPage + " of " + numOfPages);
     }
@@ -52,7 +61,7 @@ $(document).ready(function() {
     function appendResult (imgSrc, name, volume, beerId) {
         let row = $('<div class="row align-items-center item"> </div>');
         row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture"><img src="' + imgSrc + '" alt="beer icon" class="img-thumbnail" /></div>');
-        row.append('<div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name"><a data-beer-id="' + beerId + '" href="#">' + name + '</a></div>');
+        row.append('<div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name"><a class="itemLink" data-beer-id="' + beerId + '" href="#">' + name + '</a></div>');
         row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume"><p>' + volume + '</p></div>');
         $('.results').append(row);
         //console.log(name);
@@ -127,7 +136,7 @@ $(document).ready(function() {
 
     }
 
-    function ajaxCall(arr, endpoint, handleData) {
+    function ajaxCall (arr, endpoint, handleData) {
         $.ajax({
             url: 'php/action.php', //Where to make Ajax calls aka route
             type: 'post', // POST or GET
@@ -137,9 +146,7 @@ $(document).ready(function() {
                 console.log('loading')
             },
             success: function (response) {
-                //console.log(response[0]['data'][0]['id']);
                 handleData(response);
-                //console.log(response);
                 console.log("success");
             },
             error: function (xhr, ajaxOptions, thrownError) {

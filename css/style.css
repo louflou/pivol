@@ -62,3 +62,7 @@ nav .navbar {
 .home .jumbotron .buttons {
     margin-top: 35px;
 }
+
+.home .jumbotron .page {
+    margin-top: 10px;
+}
