@@ -65,8 +65,8 @@
                         <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                     <br>
-                    <p class="lead">
-                        <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
+                    <<p class="lead">
+                        <a class="btn btn-dark btn-lg disabled" href="#" role="button">Learn more</a>
                     </p>
 
                     <div class="card">
