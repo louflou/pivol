@@ -7,7 +7,9 @@ $(document).ready(function() {
     let itemLink = $(".itemLink");
     let currentPage = 1;
     let numOfPages = 1;
-    var errors = [];
+    let errors = [];
+    let n = 0;
+    let max;
 
     searchBtn.on("click", function(event) {
         event.preventDefault();
@@ -72,7 +74,7 @@ $(document).ready(function() {
         ajaxCall(parsed, 'beer/' + beerId, function (output) {
 
             if(output == 'loading') {
-                console.log('loading');
+
             } else if(output == 'error') {
 
             } else {
@@ -122,12 +124,14 @@ $(document).ready(function() {
                 $(".item").remove();
 
                 numOfPages = output[0]['numberOfPages'];
-                
+
                 if(isNaN(numOfPages)) {
                     numOfPages = 1;
                 }
 
                 outputPage();
+
+                max = output[0]['data'].length;
 
                 for(i = 0; i < output[0]['data'].length; i++) {
                     retrieveById(output[0]['data'][i]['id']);
