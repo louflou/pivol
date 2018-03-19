@@ -42,11 +42,15 @@ nav .navbar {
 /* Home
 **********************************/
 
-.form-inline {
+.home .form-inline {
     display: inline-block;
     margin: auto;
 }
 
-.lead {
+.home .lead {
     margin-top: 35px;
+}
+
+.home .card {
+    /*display: none; */
 }
