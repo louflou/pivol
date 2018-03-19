@@ -160,8 +160,8 @@ $(document).ready(function() {
         $(".lead").remove();
     }
 
-    clean();
-    displayItem("GUeFb3");
+    //clean();
+    //displayItem("GUeFb3");
 
     function displayItem(id) {
 
@@ -194,14 +194,15 @@ $(document).ready(function() {
 
 
             let row = $('<div class="row align-items-center item"> </div>');
-            let row2 = $('<div class="row item"> </div>');
+            let row2 = $('<div class="row item"> <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">Test</div> </div>');
             let column = $('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>');
-            row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"><img src="' + img + '" alt="beer icon" class="img-thumbnail" /></div>');
+
+            /*row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"><img src="' + img + '" alt="beer icon" class="img-thumbnail" /></div>');
             row.append('<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8"><p>IBU</p> <p>SRM: ' +  '</p> '+ ' <p>Alcohol Volume: ' + abv + '</p></div>');
             column.append(row2);
             row.append(column);
             //row2.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"> test</div>');
-
+            */
             //row.append(row2);
             $('.results').append(row);
         });
