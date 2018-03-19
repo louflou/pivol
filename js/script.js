@@ -7,6 +7,7 @@ $(document).ready(function() {
     let itemLink = $(".itemLink");
     let currentPage = 1;
     let numOfPages = 1;
+    var errors = [];
 
     searchBtn.on("click", function(event) {
         event.preventDefault();
@@ -30,7 +31,6 @@ $(document).ready(function() {
 
     $(document).on("click","a.itemLink", function(){
         let beerId =  $(this).attr("data-beer-id");
-        clean();
         displayItem(beerId);
 
     });
@@ -70,26 +70,32 @@ $(document).ready(function() {
         let parsed = JSON.stringify(myData);
 
         ajaxCall(parsed, 'beer/' + beerId, function (output) {
-            //console.log(output[0]['data']['labels']['medium']);
-            let img = "";
-            let abv = ""; //Alcohol by Volume
-            let name = output[0]['data']['name'];
-            let id =  output[0]['data']['id'];
 
+            if(output == 'loading') {
+                console.log('loading');
+            } else if(output == 'error') {
 
-            if(output[0]['data']['labels'] == null) {
-                img = "img/beer-tile.png";
             } else {
-                img = output[0]['data']['labels']['medium'];
-            }
+                let img = "";
+                let abv = ""; //Alcohol by Volume
+                let name = output[0]['data']['name'];
+                let id =  output[0]['data']['id'];
 
-            if(isNaN(output[0]['data']['abv'])) {
-                abv = "N/A";
-            } else {
-                abv = output[0]['data']['abv'] + "%";
-            }
 
-            appendResult(img, name, abv, id);
+                if(output[0]['data']['labels'] == null) {
+                    img = "img/beer-tile.png";
+                } else {
+                    img = output[0]['data']['labels']['medium'];
+                }
+
+                if(isNaN(output[0]['data']['abv'])) {
+                    abv = "N/A";
+                } else {
+                    abv = output[0]['data']['abv'] + "%";
+                }
+
+                appendResult(img, name, abv, id);
+            }
         });
     }
 
@@ -108,18 +114,24 @@ $(document).ready(function() {
         //let path = 'name='+beerName+'&type=beer';
         ajaxCall(parsed, 'search', function (output) {
 
-            $(".item").remove();
+            if(output == 'loading') {
 
-            numOfPages = output[0]['numberOfPages'];
-            if(isNaN(numOfPages)) {
-                numOfPages = 1;
-            }
+            } else if(output == 'error') {
 
-            outputPage();
+            } else {
+                $(".item").remove();
 
-            for(i = 0; i < output[0]['data'].length; i++) {
-                //console.log(output);
-                retrieveById(output[0]['data'][i]['id']);
+                numOfPages = output[0]['numberOfPages'];
+                
+                if(isNaN(numOfPages)) {
+                    numOfPages = 1;
+                }
+
+                outputPage();
+
+                for(i = 0; i < output[0]['data'].length; i++) {
+                    retrieveById(output[0]['data'][i]['id']);
+                }
             }
 
         });
@@ -133,15 +145,14 @@ $(document).ready(function() {
             data:{searchFor : arr, searchType : endpoint}, //Form variables /* myData */ /* {name : beerName, type : 'beer'}*/
             dataType:'json',
             beforeSend: function () {
-                console.log('loading')
+                handleData("loading")
             },
             success: function (response) {
                 handleData(response);
-                console.log("success");
             },
             error: function (xhr, ajaxOptions, thrownError) {
-
-                console.log("error");
+                //console.log("error");
+                handleData("error")
             }
         });
     }
@@ -150,10 +161,11 @@ $(document).ready(function() {
         $(".results").empty();
         $(".searchForm").remove();
         $(".lead").remove();
+        $(".buttons").empty().remove();
     }
 
     function displayItem(id) {
-
+        clean();
 
         let myData = {
 
