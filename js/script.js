@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     let searchInput = $("#searchInput");
     let searchBtn = $("#searchBtn");
+    let currentPage = 2;
 
     searchBtn.on("click", function(event) {
         event.preventDefault();
@@ -84,6 +85,7 @@ $(document).ready(function() {
 
         let myData = {
             q: $("#searchInput").val(), //Beer name
+            p: currentPage,
             type: "beer"
         };
 
