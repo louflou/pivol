@@ -84,9 +84,10 @@
                       </div>
                     </div>
 
-                    <div>
+                    <div class="buttons">
                         <button id="prevBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Previous</button>
                         <button id="nextBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
+                        <p class="page"> </p>
                     </div>
 
                 </div>

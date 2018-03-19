@@ -58,3 +58,7 @@ nav .navbar {
 .home .card .results .row {
     margin-bottom: 25px;
 }
+
+.home .jumbotron .buttons {
+    margin-top: 35px;
+}
