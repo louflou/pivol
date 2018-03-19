@@ -159,21 +159,23 @@ $(document).ready(function() {
             } else if(output == 'error') {
 
             } else {
-                $(".item").remove();
+                if(output[0]['data'] != null) {
+                    $(".item").remove();
 
-                numOfPages = output[0]['numberOfPages'];
-                n = 0;
+                    numOfPages = output[0]['numberOfPages'];
+                    n = 0;
 
-                if(isNaN(numOfPages)) {
-                    numOfPages = 1;
-                }
+                    if(isNaN(numOfPages)) {
+                        numOfPages = 1;
+                    }
 
-                outputPage();
+                    outputPage();
 
-                max = output[0]['data'].length;
+                    max = output[0]['data'].length;
 
-                for(i = 0; i < output[0]['data'].length; i++) {
-                    retrieveById(output[0]['data'][i]['id']);
+                    for(i = 0; i < output[0]['data'].length; i++) {
+                        retrieveById(output[0]['data'][i]['id']);
+                    }
                 }
             }
 
