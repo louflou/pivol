@@ -16,6 +16,7 @@ $(document).ready(function() {
     let isOrganic = false;
     let hasLabels = false;
     let hasDescription = false;
+    let abvDropDown = 1;
     let params;
 
     searchBtn.on("click", function(event) {
@@ -26,7 +27,6 @@ $(document).ready(function() {
             p: currentPage,
             type: "beer"
         };
-
         ajaxCall(1, params);
     });
 
@@ -50,6 +50,9 @@ $(document).ready(function() {
         if($('#organic').is(':checked')) {
             isOrganic = true;
         }
+
+        abvDropDown = $("#abv").val();
+        console.log(abvDropDown);
 
         ajaxCall(1, params);
     });
@@ -148,7 +151,7 @@ $(document).ready(function() {
         let row = $('<div class="row align-items-center item"> </div>');
         row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture"><img src="' + imgSrc + '" alt="beer icon" class="img-thumbnail" /></div>');
         row.append('<div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 name"><a class="itemLink" data-beer-id="' + beerId + '" href="#">' + name + '</a></div>');
-        row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume"><p>' + volume + ' %</p></div>');
+        row.append('<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 volume"><p>' + volume + '' + (volume == "N/A" ? "" : "%") + '</p></div>');
         $('.results').append(row);
     }
 
@@ -224,9 +227,15 @@ $(document).ready(function() {
 
             if(hasDescription == true) {
                 if(!('description' in response[0]['data'][i])) {
-
                     continue;
                 }
+            }
+
+            if(('abv' in response[0]['data'][i])) {
+                if(Number(response[0]['data'][i]['abv']) > Number(abvDropDown)) {
+                    continue;
+                }
+
             }
 
             appendResult(img, name, abv, id);
