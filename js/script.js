@@ -2,6 +2,8 @@ $(document).ready(function() {
 
     let searchInput = $("#searchInput");
     let searchBtn = $("#searchBtn");
+    let advSearchInput = $("#advSearchInput");
+    let advSearchBtn = $("#advSearchBtn");
     let nextBtn = $("#nextBtn");
     let prevBtn = $("#prevBtn");
     let itemLink = $(".itemLink");
@@ -10,27 +12,52 @@ $(document).ready(function() {
     let errors = [];
     let max;
     let dataRes;
+    let withBreweries = false;
+    let isOrganic = false;
+    let hasLabels = false;
+    let hasDescription = false;
+    let params;
 
     searchBtn.on("click", function(event) {
         event.preventDefault();
-        ajaxCall(1);
+
+        params = {
+            q: $("#searchInput").val(), //Beer name
+            p: currentPage,
+            type: "beer"
+        };
+
+        ajaxCall(1, params);
     });
+
+    advSearchBtn.on("click", function(event) {
+        event.preventDefault();
+
+        params = {
+            q: $("#searchInput").val(), //Beer name
+            p: currentPage,
+            type: "beer"
+        };
+
+
+
+        ajaxCall(1, params);
+    });
+
 
 
     nextBtn.on("click", function() {
         if(currentPage < numOfPages) {
             currentPage++;
         }
-        console.log(currentPage);
-        ajaxCall(currentPage);
+        ajaxCall(currentPage, params);
     });
 
     prevBtn.on("click", function() {
         if(currentPage > 1) {
             currentPage--;
         }
-        console.log(currentPage);
-        ajaxCall(currentPage);
+        ajaxCall(currentPage, params);
     });
 
     $(document).on("click","a.itemLink", function(){
@@ -93,13 +120,9 @@ $(document).ready(function() {
     }
 
 
-    function ajaxCall (page) {
+    function ajaxCall (page, params) {
         $('.item').remove();
-        let myData = {
-            q: $("#searchInput").val(), //Beer name
-            p: page,
-            type: "beer"
-        };
+        let myData = params;
 
         $.ajax({
             url: 'php/action.php', //Where to make Ajax calls aka route
@@ -107,38 +130,12 @@ $(document).ready(function() {
             data:{searchFor : myData},
             dataType:'json',
             beforeSend: function () {
-                console.log("Loading");
+                displayLoading();
             },
             success: function (response) {
+                displaySucess();
 
-                for(i = 0; i < response[0]['data'].length; i++) {
-
-                    let img = "";
-                    let name = "";
-                    let abv = "";
-                    let id = response[0]['data'][i]['id'];
-                    numOfPages = response[0]['numberOfPages'];
-
-                    if('labels' in response[0]['data'][i]) {
-                        img = response[0]['data'][i]['labels']['medium'];
-                    } else {
-                        img = "img/beer-tile.png";
-                    }
-
-                    if('name' in response[0]['data'][i]) {
-                        name = response[0]['data'][i]['name'];
-                    } else {
-                        name = "Not defined";
-                    }
-
-                    if('abv' in response[0]['data'][i]) {
-                        abv = response[0]['data'][i]['abv']
-                    } else {
-                        abv = "N/A"
-                    }
-                    dataRes = response[0]['data'];
-                    appendResult(img, name, abv, id);
-                }
+                displayItems(response);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 //console.log("error");
@@ -148,6 +145,48 @@ $(document).ready(function() {
             }
         });
     }
+
+    function displayItems(response) {
+
+        for(i = 0; i < response[0]['data'].length; i++) {
+            let img = "";
+            let name = "";
+            let abv = "";
+            let id = response[0]['data'][i]['id'];
+            numOfPages = response[0]['numberOfPages'];
+
+            if('labels' in response[0]['data'][i]) {
+                img = response[0]['data'][i]['labels']['medium'];
+            } else {
+                img = "img/beer-tile.png";
+            }
+
+            if('name' in response[0]['data'][i]) {
+                name = response[0]['data'][i]['name'];
+            } else {
+                name = "Not defined";
+            }
+
+            if('abv' in response[0]['data'][i]) {
+                abv = response[0]['data'][i]['abv']
+            } else {
+                abv = "N/A"
+            }
+            dataRes = response[0]['data'];
+
+            // let withBreweries = false;
+            // let isOrganic = false;
+            // let hasLabels = false;
+            // let hasDescription = false;
+
+            if(withBreweries == true) {
+
+            }
+
+            appendResult(img, name, abv, id);
+        }
+    }
+
 
     function clean() {
         $(".results").empty();
