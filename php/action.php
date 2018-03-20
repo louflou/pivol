@@ -10,12 +10,18 @@ $searchFor = $_POST['searchFor'];
 $params = $searchFor;
 
 
+$searchForTrim = trim($searchFor['q'], " ");
+
 try {
     // The first argument to request() is the endpoint you want to call
     // 'brewery/BrvKTz', 'beers', etc.
     // The third parameter is the HTTP method to use (GET, PUT, POST, or DELETE)
-    $results = $bdb->request("search", $params, 'GET'); // where $params is a keyed array of parameters to send with the API call.
-
+    if(empty($searchForTrim) || $searchForTrim == "") {
+      $params = array();
+      $results = $bdb->request("beers", $params, 'GET'); // where $params is a keyed array of parameters to send with the API call.
+    } else {
+      $results = $bdb->request("search", $params, 'GET'); // where $params is a keyed array of parameters to send with the API call.
+    }
     header('Content-Type: application/json');
     echo json_encode(array($results));
 

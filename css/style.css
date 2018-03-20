@@ -61,6 +61,10 @@ nav .navbar {
   margin: 50px auto 50px auto;
 }
 
+.card {
+  margin-top: 16px;
+}
+
 /* Home
 **********************************/
 
@@ -122,6 +126,10 @@ nav .navbar {
 
 .advanced .form-check {
     text-align: left;
+}
+
+.advanced .buttons {
+  margin-top: 16px;
 }
 
 .form-check-label {

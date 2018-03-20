@@ -8,7 +8,7 @@ $(document).ready(function() {
     let prevBtn = $("#prevBtn");
     let itemLink = $(".itemLink");
     let currentPage = 1;
-    let numOfPages = 1;
+    let numOfPages = 2;
     //let errors = [];
     let max;
     let dataRes;
@@ -27,6 +27,8 @@ $(document).ready(function() {
             p: currentPage,
             type: "beer"
         };
+
+        currentPage = 1;
         ajaxCall(1, params);
     });
 
@@ -38,7 +40,7 @@ $(document).ready(function() {
             p: currentPage,
             type: "beer"
         };
-
+        currentPage = 1;
         if ($('#description').is(':checked')) {
             hasDescription = true;
         }
@@ -53,7 +55,7 @@ $(document).ready(function() {
 
         abvDropDown = $("#abv").val();
         console.log(abvDropDown);
-
+        console.log("value is : " + $('#abv').val() );
         ajaxCall(1, params);
     });
 
@@ -114,6 +116,7 @@ $(document).ready(function() {
 
     function displayError () {
         $('.progress').empty().remove();
+        $('.alert').remove();
         $('.alert').removeClass('alert-info');
         $('.alert').removeClass('alert-success');
         $('.alert').addClass('alert-danger');
