@@ -79,6 +79,13 @@ $(document).ready(function() {
             }
 
             ajaxCall(currentPage, params);
+
+            if(currentPage == 1) {
+                prevBtn.addClass("disabled")
+            } else {
+                prevBtn.removeClass("disabled")
+            }
+
         }
 
     });
@@ -179,6 +186,16 @@ $(document).ready(function() {
             success: function (response) {
                 displaySucess();
                 console.log(response);
+                if(response[0]['data'] == null) {
+                    nextBtn.addClass("disabled");
+                } else {
+                    if(response[0]['numberOfPages'] == 1) {
+                      nextBtn.addClass("disabled");
+                    } else {
+                      nextBtn.removeClass("disabled");
+                    }
+
+                }
                 displayItems(response);
             },
             error: function (xhr, ajaxOptions, thrownError) {
