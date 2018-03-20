@@ -8,7 +8,7 @@ $(document).ready(function() {
     let prevBtn = $("#prevBtn");
     let itemLink = $(".itemLink");
     let currentPage = 1;
-    let numOfPages = 1;
+    let numOfPages = 2;
     let errors = [];
     let max;
     let dataRes;
@@ -57,18 +57,41 @@ $(document).ready(function() {
 
 
     nextBtn.on("click", function() {
-        if(currentPage < numOfPages) {
-            currentPage++;
+        if(!(nextBtn.hasClass("disabled"))) {
+            if(currentPage < numOfPages) {
+                currentPage++;
+            }
+            ajaxCall(currentPage, params);
         }
-        ajaxCall(currentPage, params);
     });
 
     prevBtn.on("click", function() {
-        if(currentPage > 1) {
-            currentPage--;
+
+        if(!(prevBtn.hasClass("disabled"))) {
+
+            if(currentPage > 1) {
+                currentPage--;
+            }
+
+            ajaxCall(currentPage, params);
         }
-        ajaxCall(currentPage, params);
+
     });
+
+    $(document).on("click","button", function(){
+        if(currentPage == 1) {
+            prevBtn.addClass("disabled")
+        } else {
+            prevBtn.removeClass("disabled")
+        }
+
+        if(currentPage == numOfPages) {
+            nextBtn.addClass("disabled");
+        } else {
+            nextBtn.removeClass("disabled");
+        }
+    });
+
 
     $(document).on("click","a.itemLink", function(){
         let beerId =  $(this).attr("data-beer-id");
@@ -133,6 +156,7 @@ $(document).ready(function() {
     function ajaxCall (page, params) {
         $('.item').remove();
         let myData = params;
+        myData['p'] = page;
 
         console.log(myData);
 
@@ -302,7 +326,7 @@ $(document).ready(function() {
 
         let p = $('<p>IBU: ' + ibu +  '</p>');
         let p2 = $('<p>SRM: ' + srm +  '</p>');
-        let p3 = $('<p>Alcohol Volume: ' + abv +  ' %</p>');
+        let p3 = $('<p>Alcohol Volume: ' + abv +  ' </p>');
 
         let p4 = $('<p>Is Organic: ' + organic +  '</p>');
         let p5 = $('<p>Last Updated: ' + lastUpdated +  '</p>');
