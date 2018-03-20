@@ -467,7 +467,11 @@ $(document).ready(function() {
 
                     outputPage();
 
+<<<<<<< HEAD
                     //max = output[0]['data'].length;
+=======
+                    max = output[0]['data'].length;
+>>>>>>> 9968b52feac9e96157750fdbd1f5c2515f506dfa
 
                     for(i = 0; i < output[0]['data'].length; i++) {
                         retrieveById(output[0]['data'][i]['id']);
