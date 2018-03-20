@@ -9,7 +9,7 @@ $(document).ready(function() {
     let itemLink = $(".itemLink");
     let currentPage = 1;
     let numOfPages = 2;
-    let errors = [];
+    //let errors = [];
     let max;
     let dataRes;
     //let withBreweries = false;
@@ -122,6 +122,7 @@ $(document).ready(function() {
     function displaySucess () {
         $('.progress').empty().remove();
         $('.alert').removeClass('alert-info');
+        $('.alert').removeClass('alert-danger');
         $('.alert').addClass('alert-success');
         $('.statusText').text("Finished");
         $(".alert").delay(1500).fadeOut();
@@ -178,8 +179,7 @@ $(document).ready(function() {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 //console.log("error");
-                console.log(thrownError);
-                console.log(ajaxOptions);
+                displayError();
                 errors.push(thrownError);
             }
         });
