@@ -42,6 +42,15 @@ nav .navbar {
     display: none !important;
 }
 
+.pbx {
+  width: 100%;
+}
+
+.alert {
+  margin-top: 25px !important;
+  width: 75% !important;
+  margin: auto;
+}
 
 /* Home
 **********************************/

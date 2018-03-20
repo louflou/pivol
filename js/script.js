@@ -8,7 +8,7 @@ $(document).ready(function() {
     let prevBtn = $("#prevBtn");
     let itemLink = $(".itemLink");
     let currentPage = 1;
-    let numOfPages = 2;
+    let numOfPages = 1;
     //let errors = [];
     let max;
     let dataRes;
@@ -16,7 +16,7 @@ $(document).ready(function() {
     let isOrganic = false;
     let hasLabels = false;
     let hasDescription = false;
-    let abvDropDown = 1;
+    let abvDropDown = 50;
     let params;
 
     searchBtn.on("click", function(event) {
@@ -121,7 +121,7 @@ $(document).ready(function() {
     }
 
     function displaySucess () {
-        $('.progress').empty().remove();
+        /*$('.progress').empty().remove();
         $('.alert').removeClass('alert-info');
         $('.alert').removeClass('alert-danger');
         $('.alert').addClass('alert-success');
@@ -129,7 +129,7 @@ $(document).ready(function() {
         $(".alert").delay(1500).fadeOut();
         $('.results').removeClass('hide');
         $('.buttons').removeClass('hide');
-        $('.card').removeClass('hide');
+        $('.card').removeClass('hide'); */
     }
 
     function displayLoading() {
@@ -138,11 +138,11 @@ $(document).ready(function() {
             let div = $('<div class="progress"></div>');
             let div2 = $('<div class="alert alert-info" role="alert"></div>');
             let p = $('<p class="statusText"><strong>Searching.. Please wait</p>');
-            let progressbar = $('<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>');
+            let progressbar = $('<div class="pbx progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>');
             div.append(progressbar);
             div2.append(p);
             div2.append(div);
-            div2.insertAfter('.form-inline');
+            div2.insertAfter('.myForm');
 
             $('.results').addClass('hide')
             $('.buttons').addClass('hide')
@@ -187,7 +187,7 @@ $(document).ready(function() {
     }
 
     function displayItems(response) {
-
+        if(response[0]['data'] != null) {
         for(i = 0; i < response[0]['data'].length; i++) {
             let img = "";
             let name = "";
@@ -241,6 +241,7 @@ $(document).ready(function() {
 
             appendResult(img, name, abv, id);
         }
+      }
     }
 
 
