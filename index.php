@@ -62,7 +62,7 @@
                         <a class="btn btn-dark btn-lg disabled" href="#" role="button">Learn more</a>
                     </p>
 
-                    <div class="card hide">
+                    <div class="card">
                       <div class="card-body results">
                         <div class="row">
                             <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 picture">Label</div>
@@ -72,7 +72,7 @@
                       </div>
                     </div>
 
-                    <div class="buttons hide">
+                    <div class="buttons">
                         <button id="prevBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Previous</button>
                         <button id="nextBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Next</button>
                         <p class="page"> </p>
