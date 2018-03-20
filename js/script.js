@@ -113,6 +113,7 @@ $(document).ready(function() {
     }
 
     function displayError () {
+        $('.progress').empty().remove();
         $('.alert').removeClass('alert-info');
         $('.alert').removeClass('alert-success');
         $('.alert').addClass('alert-danger');
