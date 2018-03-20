@@ -121,7 +121,7 @@ $(document).ready(function() {
     }
 
     function displaySucess () {
-        /*$('.progress').empty().remove();
+        $('.progress').empty().remove();
         $('.alert').removeClass('alert-info');
         $('.alert').removeClass('alert-danger');
         $('.alert').addClass('alert-success');
@@ -129,7 +129,7 @@ $(document).ready(function() {
         $(".alert").delay(1500).fadeOut();
         $('.results').removeClass('hide');
         $('.buttons').removeClass('hide');
-        $('.card').removeClass('hide'); */
+        $('.card').removeClass('hide');
     }
 
     function displayLoading() {
