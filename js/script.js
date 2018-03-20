@@ -224,7 +224,7 @@ $(document).ready(function() {
         }
 
         if(ingrediens == null) {
-            ingrediens = "Not defined";
+            ingrediens = "";
         }
 
 
