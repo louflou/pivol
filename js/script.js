@@ -12,7 +12,7 @@ $(document).ready(function() {
     let errors = [];
     let max;
     let dataRes;
-    let withBreweries = false;
+    //let withBreweries = false;
     let isOrganic = false;
     let hasLabels = false;
     let hasDescription = false;
@@ -34,12 +34,22 @@ $(document).ready(function() {
         event.preventDefault();
 
         params = {
-            q: $("#searchInput").val(), //Beer name
+            q: $("#advSearchInput").val(), //Beer name
             p: currentPage,
             type: "beer"
         };
 
+        if ($('#description').is(':checked')) {
+            hasDescription = true;
+        }
 
+        if($('#labels').is(':checked')) {
+            hasLabels = true;
+        }
+
+        if($('#organic').is(':checked')) {
+            isOrganic = true;
+        }
 
         ajaxCall(1, params);
     });
@@ -124,6 +134,8 @@ $(document).ready(function() {
         $('.item').remove();
         let myData = params;
 
+        console.log(myData);
+
         $.ajax({
             url: 'php/action.php', //Where to make Ajax calls aka route
             type: 'post', // POST or GET
@@ -134,7 +146,7 @@ $(document).ready(function() {
             },
             success: function (response) {
                 displaySucess();
-
+                console.log(response);
                 displayItems(response);
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -174,13 +186,23 @@ $(document).ready(function() {
             }
             dataRes = response[0]['data'];
 
-            // let withBreweries = false;
-            // let isOrganic = false;
-            // let hasLabels = false;
-            // let hasDescription = false;
+            if(isOrganic == true) {
+                if(response[0]['data'][i]['isOrganic'] == "N") {
+                    continue;
+                }
+            }
 
-            if(withBreweries == true) {
+            if(hasLabels == true) {
+                if(!('labels' in response[0]['data'][i])) {
+                    continue;
+                }
+            }
 
+            if(hasDescription == true) {
+                if(!('description' in response[0]['data'][i])) {
+
+                    continue;
+                }
             }
 
             appendResult(img, name, abv, id);
