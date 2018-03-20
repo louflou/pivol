@@ -47,9 +47,16 @@ nav .navbar {
 }
 
 .alert {
-  margin-top: 25px !important;
-  width: 75% !important;
-  margin: auto;
+  padding: 0 !important;
+}
+
+.alert p {
+  margin: 0 0 16px 0 !important;
+}
+
+.alert .progress {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 /* Home
