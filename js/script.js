@@ -189,7 +189,7 @@ $(document).ready(function() {
                 if(response[0]['data'] == null) {
                     nextBtn.addClass("disabled");
                 } else {
-                    if(response[0]['numberOfPages'] == 1) {
+                    if(response[0]['numberOfPages'] == response[0]['currentPage']) {
                       nextBtn.addClass("disabled");
                     } else {
                       nextBtn.removeClass("disabled");
