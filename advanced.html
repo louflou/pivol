@@ -42,61 +42,64 @@
 
         <div class="jumbotron text-center">
             <div class="container">
-              <div class="row">
+                
+                <div class="row">
+                  
+                                
+                  
+                  
+                  
+                
+                  
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <form class="searchForm">
+                        <fieldset class="col-sm-5 filtering">
+                            <legend>Advanced Search</legend>
 
-                    <form class="form-inline my-2 my-lg-0 mx-auto searchForm">
-                        <div class="row">
+                            <div class="form-group text-left">
+                                <div class="custom-control custom-checkbox">
+                                    <input id="organic" type="checkbox" class="custom-control-input">
+                                    <label class="custom-control-label" for="organic">Organic</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input id="labels" type="checkbox" class="custom-control-input">
+                                    <label class="custom-control-label" for="labels">With labels</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input id="description" type="checkbox" class="custom-control-input">
+                                    <label class="custom-control-label" for="description">With description</label>
+                                </div>
+                            </div>
+                        </fieldset> 
+                        <fieldset class="col-sm-5 filtering">
+                            <select id="abv" class="custom-select">
+                                <option disabled="" selected="">Max alcohol content %</option>
+                                <option>1%</option>
+                                <option>2%</option>
+                                <option>3%</option>
+                                <option>4%</option>
+                                <option>5%</option>
+                                <option>6%</option>
+                                <option>7%</option>
+                                <option>8%</option>
+                                <option>9%</option>
+                                <option>10%</option>
+                                <option>11%</option>
+                                <option>12%</option>
+                                <option>13%</option>
+                                <option>14%</option>
+                                <option>15%</option>
+                            </select>
+                        </fieldset>
+                                                 
+                        <br>
+                        <fieldset class="form-inline">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <input  id="advSearchInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 <button id="advSearchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-
-                                    <div class="form-check form-check-inline">
-                                      <input id="organic" class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                      <label class="form-check-label" for="inlineCheckbox2">Is Organic</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                      <input id="labels" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                                      <label class="form-check-label" for="inlineCheckbox3">Has Labels</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                      <input id="description" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                                      <label class="form-check-label" for="inlineCheckbox3">Has a description</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                      <input id="description" class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                                      <label class="form-check-label" for="inlineCheckbox3">Has a description</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-5 col-sm-5 col-md-5 col-lg-5">
-                            <div class="form-group">
-                                  <select id="abv" class="form-control" id="sel1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                    <option>13</option>
-                                    <option>14</option>
-                                    <option>15</option>
-                                  </select>
-                            </div>
-                            </div>
-
-                        </div>
+                        </fieldset>
+                        
                     </form>
 
                     <div class="card hide">
