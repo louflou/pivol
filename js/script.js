@@ -281,8 +281,10 @@ $(document).ready(function() {
         let abv = dataRes['abv'];
         let organic = dataRes['isOrganic'];
         let lastUpdated = dataRes['updateDate'];
-        let status = dataRes['status'];
+        let status = dataRes['statusDisplay'];
         let ingrediens = null;
+        console.log("test");
+        console.log(dataRes);
 
         if(isNaN(abv)) {
             abv = "N/A";
@@ -344,7 +346,7 @@ $(document).ready(function() {
 
         let p4 = $('<p>Is Organic: ' + organic +  '</p>');
         let p5 = $('<p>Last Updated: ' + lastUpdated +  '</p>');
-        let p6 = $('<p>Status: ' + ibu +  '</p>');
+        let p6 = $('<p>Status: ' + status +  '</p>');
 
         let p7 = $('<p>' + text + '</p>');
         let p8 = $('<p>' + ingrediens + '</p>');
@@ -368,7 +370,6 @@ $(document).ready(function() {
 
         $('.results').append(row);
         $('.results').append(row2);
-
 
     }
 
